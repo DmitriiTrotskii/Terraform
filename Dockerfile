@@ -90,6 +90,10 @@ RUN unzip random.zip && cd ${TF_RANDOM}-${TF_RANDOM_VER} && \
 
 FROM debian:stable
 
+LABEL mainteiner="Dmitrii Trotskii"
+LABEL email="dmitrii.trotskii@gmail.com"
+LABEL function="Terraform with compiled providers"
+
 ARG ARCH=linux_amd64
 
 ARG TF_VSPHERE
@@ -124,5 +128,3 @@ RUN apt update && \
 WORKDIR /terraform
 
 RUN ln -s ${TF_PLUGINS_DIR} /terraform/plugins
-
-CMD [ "/bin/bash" ]
